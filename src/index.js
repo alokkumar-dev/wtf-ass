@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const connect = require("./configs/db");
 const CORS = require("cors");
-const port =process.env.PORT || 3011
+const port = process.env.PORT || 3011;
 
 const { login, register } = require("./controllers/auth.controller");
 

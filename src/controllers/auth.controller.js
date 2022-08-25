@@ -4,7 +4,9 @@ const User = require("../models/user.model");
 const jwt = require("jsonwebtoken");
 
 const newToken = (user) => {
-  return jwt.sign({ user }, `${process.env.JWT_SECRET_KEY}`, {expiresIn: '30d'});
+  return jwt.sign({ user }, `${process.env.JWT_SECRET_KEY}`, {
+    expiresIn: "30d",
+  });
 };
 
 const register = async (req, res) => {
@@ -33,7 +35,6 @@ const register = async (req, res) => {
     const newUser = await User.create(req.body);
 
     // create a new token for the user
-    // const token = newToken(newUser);
 
     // send the token and the user
     return res
@@ -69,7 +70,6 @@ const login = async (req, res) => {
     const token = newToken(user);
 
     // send the token and the user
-    // return res.status(200).send({ user, token });
     return res.send({
       status: 200,
       message: "Logged in successfully",
